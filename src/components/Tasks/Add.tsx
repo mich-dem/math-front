@@ -1,7 +1,7 @@
 import React, {SyntheticEvent, useState} from "react";
 import {randNum} from "../../util/rand-num";
 
-export const Tasks = () => {
+export const Add = () => {
     const nullAns = {
         ans1: 'white',
         ans2: 'white',
@@ -37,14 +37,14 @@ export const Tasks = () => {
     }
     const checkIt = (e: SyntheticEvent) => {
         e.preventDefault();
-        console.log(data[0], data[1], form.inp1, data[0] + data[1] == form.inp1);
+        console.log(data[0], data[1], form.inp1, data[0] + data[1] === form.inp1);
 
         setAns({
-            ans1: data[0] + data[1] == form.inp1 ? 'lightgreen' : 'lightcoral',
-            ans2: data[2] + data[3] == form.inp2 ? 'lightgreen' : 'lightcoral',
-            ans3: data[4] + data[5] == form.inp3 ? 'lightgreen' : 'lightcoral',
-            ans4: data[6] + data[7] == form.inp4 ? 'lightgreen' : 'lightcoral',
-            ans5: data[8] + data[9] == form.inp5 ? 'lightgreen' : 'lightcoral',
+            ans1: data[0] + data[1] === form.inp1 ? 'lightgreen' : 'lightcoral',
+            ans2: data[2] + data[3] === form.inp2 ? 'lightgreen' : 'lightcoral',
+            ans3: data[4] + data[5] === form.inp3 ? 'lightgreen' : 'lightcoral',
+            ans4: data[6] + data[7] === form.inp4 ? 'lightgreen' : 'lightcoral',
+            ans5: data[8] + data[9] === form.inp5 ? 'lightgreen' : 'lightcoral',
         });
         setTimeout(newData, 3000);
     }

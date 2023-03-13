@@ -1,10 +1,10 @@
 import React from "react";
-import {Tasks} from "../Tasks/Add";
+import {Divid} from "../Tasks/Divid";
 
 export const Main = () => {
     return (
         <>
-            <Tasks/>
+            <Divid/>
         </>
     )
 }
