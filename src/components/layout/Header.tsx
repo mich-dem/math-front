@@ -1,13 +1,24 @@
 import React from 'react';
-import "./Header.css"
+import "./Header.css";
+import {Link} from "react-router-dom";
+
 
 export const Header = () => {
+
     return (
         <header>
-            <button>Dodawanie</button>
-            <button>Odejmowanie</button>
-            <button>Mnożenie</button>
-            <button>Dzielenie</button>
+            <Link to='add'>
+                <button>Dodawanie</button>
+            </Link>
+            <Link to='sub'>
+                <button>Odejmowanie</button>
+            </Link>
+            <Link to='mult'>
+                <button>Mnożenie</button>
+            </Link>
+            <Link to='divid'>
+                <button>Dzielenie</button>
+            </Link>
         </header>
     )
 }
