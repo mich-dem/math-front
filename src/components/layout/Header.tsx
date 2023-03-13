@@ -4,10 +4,10 @@ import "./Header.css"
 export const Header = () => {
     return (
         <header>
-            <a>Dodawanie</a>
-            <a>Odejmowanie</a>
-            <a>Mnożenie</a>
-            <a>Dzielenie</a>
+            <button>Dodawanie</button>
+            <button>Odejmowanie</button>
+            <button>Mnożenie</button>
+            <button>Dzielenie</button>
         </header>
     )
 }
