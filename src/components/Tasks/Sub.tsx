@@ -1,21 +1,10 @@
 import React, {SyntheticEvent, useState} from "react";
-import {randSub} from "../../util/rand.sub";
+import {randSub} from "../../util/Random/rand.sub";
+import {nullAns} from "../../util/NullAns";
+import {nullInp} from "../../util/NullInp";
+import {countSub} from "../../util/Count/countSub";
 
 export const Sub = () => {
-    const nullAns = {
-        ans1: 'white',
-        ans2: 'white',
-        ans3: 'white',
-        ans4: 'white',
-        ans5: 'white',
-    };
-    const nullInp = {
-        inp1: 0,
-        inp2: 0,
-        inp3: 0,
-        inp4: 0,
-        inp5: 0,
-    }
 
     const updateForm = (key: string, value: number) => {
         setForm(form => ({
@@ -29,6 +18,7 @@ export const Sub = () => {
     const [ans, setAns] = useState(nullAns);
 
     const [form, setForm] = useState(nullInp);
+    const [point, setPoint] = useState(0);
     const newData = () => {
         setForm(nullInp);
         setAns(nullAns);
@@ -45,6 +35,7 @@ export const Sub = () => {
             ans4: data[7] - data[6] === form.inp4 ? 'lightgreen' : 'lightcoral',
             ans5: data[9] - data[8] === form.inp5 ? 'lightgreen' : 'lightcoral',
         });
+        setPoint(prev => prev + countSub(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5]));
         setTimeout(newData, 2000);
     }
     return (
@@ -105,6 +96,7 @@ export const Sub = () => {
                 </p>
                 <button type='submit'>Sprawdź</button>
             </form>
+            <p>Twój wynik: {point} pkt.</p>
         </div>
     )
 }

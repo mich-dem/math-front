@@ -1,21 +1,10 @@
 import React, {SyntheticEvent, useState} from "react";
-import {randNum} from "../../util/rand-num";
+import {randNum} from "../../util/Random/rand-num";
+import {nullAns} from "../../util/NullAns";
+import {nullInp} from "../../util/NullInp";
+import {countAdd} from "../../util/Count/CountAdd";
 
 export const Add = () => {
-    const nullAns = {
-        ans1: 'white',
-        ans2: 'white',
-        ans3: 'white',
-        ans4: 'white',
-        ans5: 'white',
-    };
-    const nullInp = {
-        inp1: 0,
-        inp2: 0,
-        inp3: 0,
-        inp4: 0,
-        inp5: 0,
-    }
 
     const updateForm = (key: string, value: number) => {
         setForm(form => ({
@@ -29,15 +18,16 @@ export const Add = () => {
     const [ans, setAns] = useState(nullAns);
 
     const [form, setForm] = useState(nullInp);
+
+    const [point, setPoint] = useState(0);
+
     const newData = () => {
         setForm(nullInp);
         setAns(nullAns);
         setData(randNum(10, 90));
-
     }
     const checkIt = (e: SyntheticEvent) => {
         e.preventDefault();
-        console.log(data[0], data[1], form.inp1, data[0] + data[1] === form.inp1);
 
         setAns({
             ans1: data[0] + data[1] === form.inp1 ? 'lightgreen' : 'lightcoral',
@@ -46,6 +36,7 @@ export const Add = () => {
             ans4: data[6] + data[7] === form.inp4 ? 'lightgreen' : 'lightcoral',
             ans5: data[8] + data[9] === form.inp5 ? 'lightgreen' : 'lightcoral',
         });
+        setPoint(prev => prev + countAdd(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5]));
         setTimeout(newData, 3000);
     }
     return (
@@ -106,6 +97,7 @@ export const Add = () => {
                 </p>
                 <button type='submit'>Sprawdź</button>
             </form>
+            <p>Twój wynik: {point} pkt.</p>
         </div>
     )
 }
