@@ -19,6 +19,9 @@ export const Header = () => {
             <Link to='divid'>
                 <button>Dzielenie</button>
             </Link>
+            <Link to='res'>
+                <button className="lastBtn">Wyniki</button>
+            </Link>
         </header>
     )
 }

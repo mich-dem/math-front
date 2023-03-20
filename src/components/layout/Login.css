@@ -1,0 +1,23 @@
+label {
+    display: block;
+    margin: 20px 0;
+}
+
+label input {
+    width: 50%;
+}
+
+form button {
+    margin-top: 10px;
+}
+
+table.user-res td.lt {
+    width: 50%;
+    text-align: right;
+}
+
+table.user-res td.rt {
+    width: 50%;
+    text-align: left;
+    padding-left: 20px;
+}

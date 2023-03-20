@@ -4,3 +4,27 @@ header {
     display: flex;
     justify-content: space-between;
 }
+
+.lastBtn {
+    font-weight: bold;
+}
+
+@media (max-width: 680px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    header button {
+        width: 50vw;
+    }
+
+    .lastBtn {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 330px) {
+    header button {
+        width: 100vw;
+    }
+}

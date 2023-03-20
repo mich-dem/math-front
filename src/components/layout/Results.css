@@ -1,0 +1,17 @@
+table {
+    width: 80%;
+    margin: 20px auto;
+}
+
+table.allRes th {
+    color: yellow;
+}
+
+table.allRes th:hover {
+    background-color: #444;
+    color: white;
+}
+
+tr {
+    height: 40px;
+}
