@@ -31,3 +31,21 @@ button:hover {
     background-color: #777777;
     color: white;
 }
+
+td.lt {
+    width: 50%;
+    text-align: right;
+}
+
+td.rt {
+    width: 50%;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.err {
+    display: inline;
+    padding: 6px 20px;
+    color: red;
+    border: 2px solid red;
+}
