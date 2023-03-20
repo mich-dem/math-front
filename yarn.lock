@@ -3530,6 +3530,13 @@
   "resolved" "https://registry.npmjs.org/csstype/-/csstype-3.1.1.tgz"
   "version" "3.1.1"
 
+"customize-cra@^1.0.0":
+  "integrity" "sha512-DbtaLuy59224U+xCiukkxSq8clq++MOtJ1Et7LED1fLszWe88EoblEYFBJ895sB1mC6B4uu3xPT/IjClELhMbA=="
+  "resolved" "https://registry.npmjs.org/customize-cra/-/customize-cra-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "lodash.flow" "^3.5.0"
+
 "damerau-levenshtein@^1.0.8":
   "integrity" "sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA=="
   "resolved" "https://registry.npmjs.org/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz"
@@ -6161,6 +6168,11 @@
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   "version" "4.0.8"
 
+"lodash.flow@^3.5.0":
+  "integrity" "sha512-ff3BX/tSioo+XojX4MOsOMhJw0nZoUEF011LX8g8d3gvjVbxd89cCio4BCXronjxcTUIJUoqKEUA+n4CqvvRPw=="
+  "resolved" "https://registry.npmjs.org/lodash.flow/-/lodash.flow-3.5.0.tgz"
+  "version" "3.5.0"
+
 "lodash.memoize@^4.1.2":
   "integrity" "sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag=="
   "resolved" "https://registry.npmjs.org/lodash.memoize/-/lodash.memoize-4.1.2.tgz"
@@ -7502,6 +7514,18 @@
     "regenerator-runtime" "^0.13.9"
     "whatwg-fetch" "^3.6.2"
 
+"react-app-rewire-alias@^1.1.7":
+  "integrity" "sha512-vn4xU3E/wzh2/fGxda9ZQ6CtW2XdZB/WxAgNOdNPyUcX3hA3mh+kCRGwo19gSjzeTPpoZQwZRblHabLr6mwOTw=="
+  "resolved" "https://registry.npmjs.org/react-app-rewire-alias/-/react-app-rewire-alias-1.1.7.tgz"
+  "version" "1.1.7"
+
+"react-app-rewired@1 || ^2":
+  "integrity" "sha512-uFQWTErXeLDrMzOJHKp0h8P1z0LV9HzPGsJ6adOtGlA/B9WfT6Shh4j2tLTTGlXOfiVx6w6iWpp7SOC5pvk+gA=="
+  "resolved" "https://registry.npmjs.org/react-app-rewired/-/react-app-rewired-2.2.1.tgz"
+  "version" "2.2.1"
+  dependencies:
+    "semver" "^5.6.0"
+
 "react-dev-utils@^12.0.1":
   "integrity" "sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-12.0.1.tgz"
@@ -7580,7 +7604,7 @@
   dependencies:
     "@remix-run/router" "1.4.0"
 
-"react-scripts@5.0.1":
+"react-scripts@>=2.1.3", "react-scripts@5.0.1":
   "integrity" "sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ=="
   "resolved" "https://registry.npmjs.org/react-scripts/-/react-scripts-5.0.1.tgz"
   "version" "5.0.1"
@@ -8005,6 +8029,11 @@
   "version" "2.1.1"
   dependencies:
     "node-forge" "^1"
+
+"semver@^5.6.0":
+  "integrity" "sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ=="
+  "resolved" "https://registry.npmjs.org/semver/-/semver-5.7.1.tgz"
+  "version" "5.7.1"
 
 "semver@^6.0.0", "semver@^6.1.1", "semver@^6.1.2", "semver@^6.3.0":
   "integrity" "sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw=="
