@@ -7,11 +7,12 @@ import {Route, Routes} from "react-router-dom";
 import {Results} from "../layout/Results";
 import {Login} from "../layout/Login";
 import {Register} from "../layout/Register";
+import {Home} from "../layout/Home";
 
 export const Main = () => {
     return (
         <Routes>
-            <Route path="/" element={<Add/>}/>
+            <Route path="/" element={<Home/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/reg" element={<Register/>}/>
             <Route path="/add" element={<Add/>}/>

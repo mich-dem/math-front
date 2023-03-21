@@ -5,10 +5,17 @@ body {
     font-size: 24px;
 }
 
+.home {
+    width: 80%;
+    margin: 20px auto;
+    text-align: justify;
+}
+
 h1 {
     margin-top: 36px;
     font-size: 30px;
     color: skyblue;
+    text-align: center;
 }
 
 form input {

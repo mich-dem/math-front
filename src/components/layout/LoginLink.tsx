@@ -11,13 +11,15 @@ export const LoginLink = () => {
     if (nick === '') {
         return (
             <div className="link-div">
-                <p><Link to="login">Zaloguj się</Link> lub <Link to="reg">Zarejestruj się</Link></p>
+                <p>Wróć na <Link to="/">stronę główną, </Link><Link to="login">zaloguj się</Link> lub <Link to="reg">zarejestruj
+                    się</Link></p>
             </div>
         )
     } else {
         return (
             <div className="link-div">
-                <p>Jesteś zalogowany jako <Link to="login"><b>{nick}</b></Link>. <a onClick={logout}>Wyloguj się</a></p>
+                <p>Jesteś zalogowany jako <Link to="login"><b>{nick}</b></Link>. Wróć na <Link to="/">Stronę
+                    główną</Link> Gdy skończysz, <a onClick={logout}>wyloguj się</a></p>
             </div>
         )
     }

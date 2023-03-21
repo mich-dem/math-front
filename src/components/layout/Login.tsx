@@ -6,6 +6,7 @@ import "./Login.css";
 export const Login = () => {
     const [loading, setLoading] = useState(false);
     const [check, setCheck] = useState(false);
+    const [errMess, setErrMess] = useState('');
     const [points, setPoints] = useState({add: 0, sub: 0, mul: 0, div: 0});
     const {nick, setNick} = useContext(NickContext);
     const [tab, setTab] = useState(false);
@@ -35,16 +36,19 @@ export const Login = () => {
                 body: JSON.stringify(form),
             });
             const data = await res.json();
-
             if (data.message) {
                 setCheck(true);
-            } else {
+                setErrMess(data.message);
+            } else if (data) {
                 setNick(form.nick);
                 setCheck(false);
                 setForm({
                     nick: '',
                     pass: '',
                 });
+            } else {
+                setCheck(true);
+                setErrMess('Logowanie nie powiodło się. Przypomnij sobie hasło i spróbuj ponownie.');
             }
         } finally {
             setLoading(false);
@@ -101,7 +105,7 @@ export const Login = () => {
                     <p
                         className='err'
                         style={{display: check ? '' : 'none'}}
-                    >Logowanie nie powiodło się. Przypomnij sobie nick oraz hasło i spróbuj ponownie.</p>
+                    >{errMess}</p>
                     <label>
                         Nick: <br/>
                         <input
