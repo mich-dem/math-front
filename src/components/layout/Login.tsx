@@ -1,7 +1,7 @@
 import {SyntheticEvent, useContext, useState} from "react";
-import "./Login.css";
 import {NickContext} from "../../context/nick.context";
 import {MathTaskRes} from "types";
+import "./Login.css";
 
 export const Login = () => {
     const [loading, setLoading] = useState(false);
@@ -27,9 +27,18 @@ export const Login = () => {
         setLoading(true);
         setCheck(true);
         try {
-            const res = await (fetch(`http://localhost:3001/math/log/${form.nick}/${form.pass}`));
+            const res = await fetch("http://localhost:3001/math/log", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(form),
+            });
             const data = await res.json();
-            if (data) {
+
+            if (data.message) {
+                setCheck(true);
+            } else {
                 setNick(form.nick);
                 setCheck(false);
                 setForm({
@@ -92,7 +101,7 @@ export const Login = () => {
                     <p
                         className='err'
                         style={{display: check ? '' : 'none'}}
-                    >Logowanie nie powiodło się. Przypomnij sobie nick, hasło i spróbuj ponownie.</p>
+                    >Logowanie nie powiodło się. Przypomnij sobie nick oraz hasło i spróbuj ponownie.</p>
                     <label>
                         Nick: <br/>
                         <input
