@@ -1,8 +1,10 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {MathToList} from "types";
 import './Results.css';
+import {NickContext} from "../../context/nick.context";
 
 export const Results = () => {
+    const {nick, setNick} = useContext(NickContext);
     const selNick = () => {
         setSort('nick')
     };
@@ -43,7 +45,7 @@ export const Results = () => {
                 <tbody>
                 {
                     users.map(user => (
-                        <tr key={user.nick}>
+                        <tr key={user.nick} className={user.nick === nick ? 'myRes' : 'normal'}>
                             <td>{user.nick}</td>
                             <td>{user.add}</td>
                             <td>{user.sub}</td>

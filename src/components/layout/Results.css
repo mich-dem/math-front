@@ -15,3 +15,7 @@ table.allRes th:hover {
 tr {
     height: 40px;
 }
+
+tr.myRes {
+    background-color: #333;
+}
