@@ -1,13 +1,13 @@
 import {useContext} from "react";
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 
 export const Home = () => {
 
-    const {nick} = useContext(NickContext);
+    const {user} = useContext(UserContext);
 
     return (
         <div className='home'>
-            <h1>Witaj {nick} na stronie matematycznej!</h1>
+            <h1>Witaj {user.nick} na stronie matematycznej!</h1>
             <p>Tutaj będziesz mógł sprawdzić swoje umiejętności arytmetyczne.</p>
             <p>Możesz bawić się anonimowo i zdobywać punkty, ale po przejściu na inną stronę, wszystko stracisz. Jeśli
                 nie chcesz, aby punkty przepadły, możesz się zarejestrować. Gdy będziesz zalogowany, Twoje punkty będą

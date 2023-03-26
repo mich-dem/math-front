@@ -3,10 +3,11 @@ import {randSub} from "../../util/Random/rand.sub";
 import {nullAns} from "../../util/NullAns";
 import {nullInp} from "../../util/NullInp";
 import {countSub} from "../../util/Count/countSub";
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 
 export const Sub = () => {
-    const {nick} = useContext(NickContext);
+    const {user} = useContext(UserContext);
+    const {id, nick} = user;
 
     const updateForm = (key: string, value: number) => {
         setForm(form => ({

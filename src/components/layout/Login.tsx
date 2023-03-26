@@ -1,5 +1,5 @@
 import {SyntheticEvent, useContext, useState} from "react";
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 import {MathTaskRes} from "types";
 import "./Login.css";
 
@@ -8,7 +8,7 @@ export const Login = () => {
     const [check, setCheck] = useState(false);
     const [errMess, setErrMess] = useState('');
     const [points, setPoints] = useState({add: 0, sub: 0, mul: 0, div: 0});
-    const {nick, setNick} = useContext(NickContext);
+    const {user, setUser} = useContext(UserContext);
     const [tab, setTab] = useState(false);
     const [form, setForm] = useState({
         nick: '',
@@ -16,7 +16,7 @@ export const Login = () => {
     });
 
     const downLoadPoints = async (): Promise<MathTaskRes> => {
-        const res = await fetch(`http://localhost:3001/math/res/${nick}`);
+        const res = await fetch(`http://localhost:3001/math/res/${user.nick}`);
         const data = await res.json();
         setPoints(data);
         setTab(true);
@@ -40,7 +40,7 @@ export const Login = () => {
                 setCheck(true);
                 setErrMess(data.message);
             } else if (data) {
-                setNick(form.nick);
+                setUser({id: '', nick: form.nick});
                 setCheck(false);
                 setForm({
                     nick: '',
@@ -65,10 +65,10 @@ export const Login = () => {
     if (loading) {
         return <h2>Logujesz się...</h2>;
     }
-    if (nick !== '') {
+    if (user.nick !== '') {
         return (
             <div>
-                <h2>Witaj, {nick}!</h2>
+                <h2>Witaj, {user.nick}!</h2>
                 <p>Jesteś zalogowany. Możesz zbierać punkty.</p>
                 <button onClick={downLoadPoints} style={{display: tab ? 'none' : ''}}>Pokaż wyniki</button>
                 <div style={{display: tab ? '' : 'none'}}>
