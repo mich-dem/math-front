@@ -1,10 +1,10 @@
 import {useContext, useEffect, useState} from "react";
 import {MathToList} from "types";
 import './Results.css';
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 
 export const Results = () => {
-    const {nick, setNick} = useContext(NickContext);
+    const {user, setUser} = useContext(UserContext);
     const selNick = () => {
         setSort('nick')
     };
@@ -44,13 +44,13 @@ export const Results = () => {
                 </thead>
                 <tbody>
                 {
-                    users.map(user => (
-                        <tr key={user.nick} className={user.nick === nick ? 'myRes' : 'normal'}>
-                            <td>{user.nick}</td>
-                            <td>{user.add}</td>
-                            <td>{user.sub}</td>
-                            <td>{user.mul}</td>
-                            <td>{user.div}</td>
+                    users.map(thisUser => (
+                        <tr key={thisUser.nick} className={thisUser.nick === user.nick ? 'myRes' : 'normal'}>
+                            <td>{thisUser.nick}</td>
+                            <td>{thisUser.add}</td>
+                            <td>{thisUser.sub}</td>
+                            <td>{thisUser.mul}</td>
+                            <td>{thisUser.div}</td>
                         </tr>
                     ))
                 }

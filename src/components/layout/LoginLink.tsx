@@ -1,14 +1,14 @@
 import {useContext} from "react";
 import {Link} from "react-router-dom";
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 import "./LoginLink.css"
 
 export const LoginLink = () => {
-    const {nick, setNick} = useContext(NickContext);
+    const {user, setUser} = useContext(UserContext);
     const logout = () => {
-        setNick('')
+        setUser({id: '', nick: ''})
     }
-    if (nick === '') {
+    if (user.nick === '') {
         return (
             <div className="link-div">
                 <p>Wróć na <Link to="/">stronę główną, </Link><Link to="login">zaloguj się</Link> lub <Link to="reg">zarejestruj
@@ -18,7 +18,7 @@ export const LoginLink = () => {
     } else {
         return (
             <div className="link-div">
-                <p>Jesteś zalogowany jako <Link to="login"><b>{nick}</b></Link>. Wróć na <Link to="/">Stronę
+                <p>Jesteś zalogowany jako <Link to="login"><b>{user.nick}</b></Link>. Wróć na <Link to="/">Stronę
                     główną</Link> Gdy skończysz, <a onClick={logout}>wyloguj się</a></p>
             </div>
         )

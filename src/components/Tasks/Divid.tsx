@@ -3,10 +3,11 @@ import {randDiv} from "../../util/Random/rand.div";
 import {countDiv} from "../../util/Count/CountDiv";
 import {nullAns} from "../../util/NullAns";
 import {nullInp} from "../../util/NullInp";
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 
 export const Divid = () => {
-    const {nick} = useContext(NickContext);
+    const {user} = useContext(UserContext);
+    const {id, nick} = user;
 
     const updateForm = (key: string, value: number) => {
         setForm(form => ({
@@ -16,13 +17,13 @@ export const Divid = () => {
     };
 
     const downLoadPoints = async () => {
-        const res = await fetch(`http://localhost:3001/math/res/${nick}`);
+        const res = await fetch(`http://localhost:3001/math/res/${id}`);
         const data = await res.json();
         const {div} = data;
         setPoint(div);
     }
     const changeDb = async () => {
-        const res = await fetch(`http://localhost:3001/math/plus/${nick}/div/${countDiv(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5])}`);
+        const res = await fetch(`http://localhost:3001/math/plus/${id}/div/${countDiv(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5])}`);
         const dt = await res.json();
         if (dt) {
             await downLoadPoints();

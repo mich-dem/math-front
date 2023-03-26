@@ -1,8 +1,8 @@
 import {SyntheticEvent, useContext, useState} from "react";
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 
 export const Register = () => {
-    const {nick, setNick} = useContext(NickContext);
+    const {user, setUser} = useContext(UserContext);
     const [mess, setMess] = useState('');
     const [loading, setLoading] = useState(false);
     const [form, setForm] = useState({
@@ -26,7 +26,7 @@ export const Register = () => {
             if (message) {
                 setMess(message);
             } else {
-                setNick(data.nick);
+                setUser({id: data.id, nick: data.nick});
                 setForm({
                     nick: '',
                     pass: '',
@@ -47,10 +47,10 @@ export const Register = () => {
     if (loading) {
         return <h2>Rejestrujesz się...</h2>;
     }
-    if (nick !== '') {
+    if (user.nick !== '') {
         return (
             <>
-                <h2>Witaj, {nick}!</h2>
+                <h2>Witaj, {user.nick}!</h2>
                 <p>Zarejestestrowałeś się pomyślnie. Jesteś zalogowany. Możesz zbierać punkty.</p>
             </>
         )

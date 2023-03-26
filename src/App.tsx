@@ -3,18 +3,18 @@ import './App.css';
 import {Header} from "./components/layout/Header";
 import {Main} from "./components/Main/Main";
 import {LoginLink} from "./components/layout/LoginLink";
-import {NickContext} from './context/nick.context';
+import {UserContext} from './context/user.context';
 
 function App() {
-    const [nick, setNick] = useState('');
+    const [user, setUser] = useState({id: '', nick: ''});
     return (
-        <NickContext.Provider value={{nick, setNick}}>
+        <UserContext.Provider value={{user, setUser}}>
             <div className="App">
                 <LoginLink/>
                 <Header/>
                 <Main/>
             </div>
-        </NickContext.Provider>
+        </UserContext.Provider>
     );
 }
 

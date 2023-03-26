@@ -3,10 +3,12 @@ import {randNum} from "../../util/Random/rand-num";
 import {countMult} from "../../util/Count/countMult";
 import {nullAns} from "../../util/NullAns";
 import {nullInp} from "../../util/NullInp";
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 
 export const Mult = () => {
-    const {nick} = useContext(NickContext);
+    const {user} = useContext(UserContext);
+    const {id, nick} = user;
+
 
     const updateForm = (key: string, value: number) => {
         setForm(form => ({
@@ -16,13 +18,13 @@ export const Mult = () => {
     };
 
     const downLoadPoints = async () => {
-        const res = await fetch(`http://localhost:3001/math/res/${nick}`);
+        const res = await fetch(`http://localhost:3001/math/res/${id}`);
         const data = await res.json();
         const {mul} = data;
         setPoint(mul);
     }
     const changeDb = async () => {
-        const res = await fetch(`http://localhost:3001/math/plus/${nick}/mul/${countMult(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5])}`);
+        const res = await fetch(`http://localhost:3001/math/plus/${id}/mul/${countMult(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5])}`);
         const dt = await res.json();
         if (dt) {
             await downLoadPoints();

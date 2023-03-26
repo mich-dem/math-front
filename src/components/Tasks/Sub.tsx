@@ -3,10 +3,11 @@ import {randSub} from "../../util/Random/rand.sub";
 import {nullAns} from "../../util/NullAns";
 import {nullInp} from "../../util/NullInp";
 import {countSub} from "../../util/Count/countSub";
-import {NickContext} from "../../context/nick.context";
+import {UserContext} from "../../context/user.context";
 
 export const Sub = () => {
-    const {nick} = useContext(NickContext);
+    const {user} = useContext(UserContext);
+    const {id, nick} = user;
 
     const updateForm = (key: string, value: number) => {
         setForm(form => ({
@@ -16,13 +17,13 @@ export const Sub = () => {
     };
 
     const downLoadPoints = async () => {
-        const res = await fetch(`http://localhost:3001/math/res/${nick}`);
+        const res = await fetch(`http://localhost:3001/math/res/${id}`);
         const data = await res.json();
         const {sub} = data;
         setPoint(sub);
     }
     const changeDb = async () => {
-        const res = await fetch(`http://localhost:3001/math/plus/${nick}/sub/${countSub(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5])}`);
+        const res = await fetch(`http://localhost:3001/math/plus/${id}/sub/${countSub(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5])}`);
         const dt = await res.json();
         if (dt) {
             await downLoadPoints();
