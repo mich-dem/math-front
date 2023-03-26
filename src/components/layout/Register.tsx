@@ -26,7 +26,7 @@ export const Register = () => {
             if (message) {
                 setMess(message);
             } else {
-                setUser({id: '', nick: data.nick});
+                setUser({id: data.id, nick: data.nick});
                 setForm({
                     nick: '',
                     pass: '',

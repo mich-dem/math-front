@@ -14,9 +14,10 @@ export const Login = () => {
         nick: '',
         pass: '',
     });
+    const {id, nick} = user;
 
     const downLoadPoints = async (): Promise<MathTaskRes> => {
-        const res = await fetch(`http://localhost:3001/math/res/${user.nick}`);
+        const res = await fetch(`http://localhost:3001/math/res/${id}`);
         const data = await res.json();
         setPoints(data);
         setTab(true);
@@ -40,7 +41,7 @@ export const Login = () => {
                 setCheck(true);
                 setErrMess(data.message);
             } else if (data) {
-                setUser({id: '', nick: form.nick});
+                setUser({id: data, nick: form.nick});
                 setCheck(false);
                 setForm({
                     nick: '',
@@ -65,10 +66,10 @@ export const Login = () => {
     if (loading) {
         return <h2>Logujesz się...</h2>;
     }
-    if (user.nick !== '') {
+    if (nick !== '') {
         return (
             <div>
-                <h2>Witaj, {user.nick}!</h2>
+                <h2>Witaj, {nick}!</h2>
                 <p>Jesteś zalogowany. Możesz zbierać punkty.</p>
                 <button onClick={downLoadPoints} style={{display: tab ? 'none' : ''}}>Pokaż wyniki</button>
                 <div style={{display: tab ? '' : 'none'}}>
