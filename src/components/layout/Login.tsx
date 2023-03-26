@@ -24,7 +24,6 @@ export const Login = () => {
         return data;
     }
 
-
     const sendForm = async (e: SyntheticEvent) => {
         e.preventDefault();
         setLoading(true);
