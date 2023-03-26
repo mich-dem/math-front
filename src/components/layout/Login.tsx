@@ -1,4 +1,4 @@
-import {SyntheticEvent, useContext, useState} from "react";
+import {SyntheticEvent, useContext, useEffect, useState} from "react";
 import {UserContext} from "../../context/user.context";
 import {MathTaskRes} from "types";
 import "./Login.css";
@@ -23,6 +23,7 @@ export const Login = () => {
         setTab(true);
         return data;
     }
+
 
     const sendForm = async (e: SyntheticEvent) => {
         e.preventDefault();
@@ -55,6 +56,14 @@ export const Login = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        (async () => {
+            if (user.id) {
+                await downLoadPoints();
+            }
+        })();
+    }, [user]);
 
     const updateForm = (key: string, value: any) => {
         setForm(form => ({
