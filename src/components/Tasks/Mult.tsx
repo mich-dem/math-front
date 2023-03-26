@@ -24,7 +24,18 @@ export const Mult = () => {
         setPoint(mul);
     }
     const changeDb = async () => {
-        const res = await fetch(`http://localhost:3001/math/plus/${id}/mul/${countMult(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5])}`);
+        const toSend = {
+            id,
+            val: [...data,
+                form.inp1, form.inp2, form.inp3, form.inp4, form.inp5, 3]
+        };
+        const res = await fetch("http://localhost:3001/math", {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(toSend),
+        });
         const dt = await res.json();
         if (dt) {
             await downLoadPoints();
@@ -35,9 +46,7 @@ export const Mult = () => {
     const [ans, setAns] = useState(nullAns);
     const [form, setForm] = useState(nullInp);
     const [point, setPoint] = useState(0);
-
     const [roundPoint, setRoundPoint] = useState(0);
-
     const [vis, setVis] = useState('none');
 
     const newData = () => {

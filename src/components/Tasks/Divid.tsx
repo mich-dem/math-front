@@ -23,7 +23,18 @@ export const Divid = () => {
         setPoint(div);
     }
     const changeDb = async () => {
-        const res = await fetch(`http://localhost:3001/math/plus/${id}/div/${countDiv(data, [form.inp1, form.inp2, form.inp3, form.inp4, form.inp5])}`);
+        const toSend = {
+            id,
+            val: [...data,
+                form.inp1, form.inp2, form.inp3, form.inp4, form.inp5, 4]
+        };
+        const res = await fetch("http://localhost:3001/math", {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(toSend),
+        });
         const dt = await res.json();
         if (dt) {
             await downLoadPoints();
